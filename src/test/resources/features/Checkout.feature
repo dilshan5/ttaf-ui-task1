@@ -3,7 +3,7 @@ Feature:  As A User
   So I can select trousers using different criteria.
 
   @smoke @Severity(SeverityLevel.CRITICAL)
-  Scenario: Home page -  Verify guest checkout process
+  Scenario: CheckOut -  Verify guest checkout process
     Given I visit the web site as a guest user
     And I search for "trouser"
     Then I should be in Search Result page

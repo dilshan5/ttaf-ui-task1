@@ -9,7 +9,7 @@
     <version>0.1-SNAPSHOT</version>
 
     <properties>
-        <ttaf.ui.core.version>1.0.7-SNAPSHOT</ttaf.ui.core.version>
+        <ttaf.ui.core.version>1.0.8-SNAPSHOT</ttaf.ui.core.version>
         <maven.surefire.plugin>2.21.0</maven.surefire.plugin>
     </properties>
     <dependencies>
