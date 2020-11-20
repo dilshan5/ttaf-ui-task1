@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import panels.AmazonHeaderPanel;
 
+import java.time.Duration;
+
 /**
  * Created by DilshanF on 20/11/2020.
  */
@@ -43,5 +45,11 @@ public class AddCartPage extends BasicPage {
     public void remove_product() throws Exception {
         wait.until(ExpectedConditions.elementToBeClickable(proceed_to_checkout_button));
         remove_product.click();
+    }
+
+    public boolean check_cart_page_title() throws Exception {
+        wait.withTimeout(Duration.ofSeconds(5));
+        String expectedTitle = "Amazon.com Shopping Cart";
+        return driver.getTitle().equals(expectedTitle);
     }
 }

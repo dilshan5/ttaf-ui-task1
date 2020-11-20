@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import panels.AmazonHeaderPanel;
 import panels.AmazonSidePanel;
 
+import java.time.Duration;
 import java.util.logging.Logger;
 
 /**
@@ -50,6 +51,7 @@ public class SearchResultsPage extends BasicPage {
     public void click_on_any_product(int index) {
         wait.until(ExpectedConditions.visibilityOf(products));//wait until all the products are displayed
         products.findElements(By.className("s-result-item")).get(index).findElements(By.tagName("a")).get(0).click();
+        wait.withTimeout(Duration.ofSeconds(5));
     }
 
 }

@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import panels.AmazonHeaderPanel;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -22,6 +23,7 @@ public class ProductDisplayPage extends BasicPage {
     private WebDriverWait wait = new WebDriverWait(driver, 60);
     private AmazonHeaderPanel amazonHeaderPanel;
     private OfferListingPage offerListingPage;
+    private AddCartPage addCartPage;
 
     @FindBy(id = "add-to-cart-button")
     private WebElement add_to_cart_button;
@@ -53,6 +55,7 @@ public class ProductDisplayPage extends BasicPage {
     }
 
     public boolean verify_Current_Page() throws Exception {
+        wait.withTimeout(Duration.ofSeconds(5));
         return driver.getCurrentUrl().toLowerCase().contains("/dp/");
     }
 
@@ -66,7 +69,7 @@ public class ProductDisplayPage extends BasicPage {
         } catch (Exception Ex) {
             LOGGER.info("WARN: Add to cart button is not available for this product.");
         }
-        try {
+/*        try {
             //when there is no "Add to cart" button
             click_allBuying_options_button();
         } catch (Exception Ex) {
@@ -76,7 +79,7 @@ public class ProductDisplayPage extends BasicPage {
             select_otherBuying_options();
         } catch (Exception Ex) {
             LOGGER.info("WARN: Twister options are not available for this product.");
-        }
+        }*/
     }
 
     /**
@@ -87,6 +90,8 @@ public class ProductDisplayPage extends BasicPage {
     private void click_add_cart_button() throws Exception {
         if (add_to_cart_button.isDisplayed()) {
             add_to_cart_button.click();
+            addCartPage = new AddCartPage(driver);
+            addCartPage.check_cart_page_title();
             LOGGER.info("Info: Add the item to the Cart.");
         }
     }
