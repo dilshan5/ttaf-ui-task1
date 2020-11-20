@@ -69,10 +69,10 @@ public class SearchResultsPageSteps {
             i_click_on_Product_Thumbnail_in_search_results_page("first");//click on the Nth item
             productDisplayPage.verify_Current_Page();
             productDisplayPage.add_item();//add the item to Cart
+            LOGGER.info("Added a product on " + searchKeyword + " based on " + list.get(i).get(0));
             i++;
             if (i < list.size())
                 amazonHomePage.amazonHeaderPanel.search_for(searchKeyword);
-            LOGGER.info("Added a product on " + searchKeyword + " based on " + list.get(i).get(0));
         }
     }
 

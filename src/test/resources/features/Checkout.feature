@@ -5,9 +5,9 @@ Feature:  As A User
   @smoke @Severity(SeverityLevel.CRITICAL)
   Scenario: CheckOut -  Verify guest checkout process
     Given I visit the web site as a guest user
-    And I search for "trouser"
+    And I search for "handbags"
     Then I should be in Search Result page
-    And Page should have search keyword as "trouser"
+    And Page should have search keyword as "handbags"
     And I search for following criteria and ADD the one item of each
       | Popular Brands |
       | Any Brand      |
