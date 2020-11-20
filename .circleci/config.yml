@@ -6,7 +6,7 @@ jobs:
         - master
     working_directory: ~/circleci-ttaf-ui-bitpanda # directory where steps will run
     docker:
-      - image: circleci/node:jessie-browsers
+      - image: circleci/openjdk:8-jdk-browsers
 
     steps: # a collection of executable commands
       - checkout # check out source code to working directory
